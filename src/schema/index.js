@@ -1,13 +1,6 @@
 const { gql } = require("apollo-server");
 
 const typeDefs = gql`
-  type WeatherData {
-    id: ID
-    main: String
-    description: String
-    icon: String
-  }
-
   type StatisticsData {
     temp: Float
     feels_like: Float
@@ -15,19 +8,22 @@ const typeDefs = gql`
     temp_max: Float
     pressure: Int
     humidity: Int
+    windSpeed: Float
+    windDeg: Float
   }
 
-  type WindData {
-    speed: Float
-    deg: Int
-  }
-
-  type City {
-    cityName: String
+  type Weather {
     id: ID
+    cityName: String
     visibility: Int
-    weather: WeatherData
+    iconUrl: String
+    description: String
     statistics: StatisticsData
-    wind: WindData
+  }
+
+  type Query {
+    weather(cityName: String!): Weather
   }
 `;
+
+module.exports = typeDefs;
