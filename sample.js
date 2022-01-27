@@ -26,8 +26,4 @@ const london = {
     speed: 2.06,
     deg: 280,
   },
-
-  clouds: {
-    all: 67,
-  },
 };
